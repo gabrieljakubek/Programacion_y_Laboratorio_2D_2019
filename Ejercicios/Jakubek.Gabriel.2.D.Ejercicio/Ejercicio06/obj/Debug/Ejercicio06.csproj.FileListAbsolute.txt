@@ -1,0 +1,7 @@
+E:\Carrera Programacion Superior\Segundo Cuatrimestre\Programación y laboratorio 2D 2019\Ejercicios\Jakubek.Gabriel.2.D.Ejercicio\Ejercicio06\bin\Debug\Ejercicio06.exe.config
+E:\Carrera Programacion Superior\Segundo Cuatrimestre\Programación y laboratorio 2D 2019\Ejercicios\Jakubek.Gabriel.2.D.Ejercicio\Ejercicio06\bin\Debug\Ejercicio06.exe
+E:\Carrera Programacion Superior\Segundo Cuatrimestre\Programación y laboratorio 2D 2019\Ejercicios\Jakubek.Gabriel.2.D.Ejercicio\Ejercicio06\bin\Debug\Ejercicio06.pdb
+E:\Carrera Programacion Superior\Segundo Cuatrimestre\Programación y laboratorio 2D 2019\Ejercicios\Jakubek.Gabriel.2.D.Ejercicio\Ejercicio06\obj\Debug\Ejercicio06.csprojAssemblyReference.cache
+E:\Carrera Programacion Superior\Segundo Cuatrimestre\Programación y laboratorio 2D 2019\Ejercicios\Jakubek.Gabriel.2.D.Ejercicio\Ejercicio06\obj\Debug\Ejercicio06.csproj.CoreCompileInputs.cache
+E:\Carrera Programacion Superior\Segundo Cuatrimestre\Programación y laboratorio 2D 2019\Ejercicios\Jakubek.Gabriel.2.D.Ejercicio\Ejercicio06\obj\Debug\Ejercicio06.exe
+E:\Carrera Programacion Superior\Segundo Cuatrimestre\Programación y laboratorio 2D 2019\Ejercicios\Jakubek.Gabriel.2.D.Ejercicio\Ejercicio06\obj\Debug\Ejercicio06.pdb

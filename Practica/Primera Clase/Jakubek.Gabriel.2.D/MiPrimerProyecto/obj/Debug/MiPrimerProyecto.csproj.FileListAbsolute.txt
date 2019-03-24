@@ -1,0 +1,7 @@
+D:\VisualStudio\Jakubek.Gabriel.2.D\MiPrimerProyecto\bin\Debug\MiPrimerProyecto.exe.config
+D:\VisualStudio\Jakubek.Gabriel.2.D\MiPrimerProyecto\bin\Debug\MiPrimerProyecto.exe
+D:\VisualStudio\Jakubek.Gabriel.2.D\MiPrimerProyecto\bin\Debug\MiPrimerProyecto.pdb
+D:\VisualStudio\Jakubek.Gabriel.2.D\MiPrimerProyecto\obj\Debug\MiPrimerProyecto.csprojAssemblyReference.cache
+D:\VisualStudio\Jakubek.Gabriel.2.D\MiPrimerProyecto\obj\Debug\MiPrimerProyecto.csproj.CoreCompileInputs.cache
+D:\VisualStudio\Jakubek.Gabriel.2.D\MiPrimerProyecto\obj\Debug\MiPrimerProyecto.exe
+D:\VisualStudio\Jakubek.Gabriel.2.D\MiPrimerProyecto\obj\Debug\MiPrimerProyecto.pdb
