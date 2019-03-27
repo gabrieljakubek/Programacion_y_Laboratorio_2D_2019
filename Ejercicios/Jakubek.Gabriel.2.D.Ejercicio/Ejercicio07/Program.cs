@@ -15,9 +15,10 @@ namespace Ejercicio07
         static int mesNacimiento;
         static int anoNacimiento;
         static int diasTotales;
+        static DateTime esteAno = DateTime.Now;
         static void Main(string[] args)
         {
-            Console.Title = "Ejercicio 06";
+            Console.Title = "Ejercicio 07";
             do
             {
                 Console.Write("Ingrese su año de nacimiento: ");
@@ -29,7 +30,7 @@ namespace Ejercicio07
                 else
                 {
                     anoNacimiento = ingreso;
-                    if (anoNacimiento % 4 == 0 || anoNacimiento % 100 == 0 && anoNacimiento % 400 == 0)
+                    if (DateTime.IsLeapYear( anoNacimiento))// % 4 == 0 || anoNacimiento % 100 == 0 && anoNacimiento % 400 == 0)
                     {
                         anoBisiesto = true;
                     }
@@ -84,10 +85,7 @@ namespace Ejercicio07
                     diasTotales += DateTime.DaysInMonth(j, k);
                 }
             }
-            for (int h = 1; h <= DateTime.Now.Month; h++)
-            {
-                diasTotales += DateTime.DaysInMonth(DateTime.Now.Year, h);
-            }
+            diasTotales += esteAno.DayOfYear;
             Console.Write("Usted a vivido {0} dias", diasTotales);
             Console.ReadKey();
         }

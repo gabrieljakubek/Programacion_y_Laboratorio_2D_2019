@@ -1,0 +1,7 @@
+D:\VisualStudio\Jakubek.Gabriel.2.D Primer Clase\SegundaClase\SegundaClase\bin\Debug\SegundaClase.exe.config
+D:\VisualStudio\Jakubek.Gabriel.2.D Primer Clase\SegundaClase\SegundaClase\bin\Debug\SegundaClase.exe
+D:\VisualStudio\Jakubek.Gabriel.2.D Primer Clase\SegundaClase\SegundaClase\bin\Debug\SegundaClase.pdb
+D:\VisualStudio\Jakubek.Gabriel.2.D Primer Clase\SegundaClase\SegundaClase\obj\Debug\SegundaClase.csprojAssemblyReference.cache
+D:\VisualStudio\Jakubek.Gabriel.2.D Primer Clase\SegundaClase\SegundaClase\obj\Debug\SegundaClase.csproj.CoreCompileInputs.cache
+D:\VisualStudio\Jakubek.Gabriel.2.D Primer Clase\SegundaClase\SegundaClase\obj\Debug\SegundaClase.exe
+D:\VisualStudio\Jakubek.Gabriel.2.D Primer Clase\SegundaClase\SegundaClase\obj\Debug\SegundaClase.pdb
