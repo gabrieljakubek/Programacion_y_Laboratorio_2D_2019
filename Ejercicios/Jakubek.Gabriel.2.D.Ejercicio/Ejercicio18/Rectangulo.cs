@@ -24,11 +24,27 @@ namespace Ejercicio18
             this.vertice3 = vertice3;
             this.vertice2 = new Punto(vertice3.GetX, vertice1.GetY);
             this.vertice4 = new Punto(vertice1.GetX, vertice3.GetY);
+            this.area = Math.Abs(vertice1.GetX - vertice3.GetX) * Math.Abs(vertice1.GetY - vertice3.GetY);
+            this.perimetro = ((vertice1.GetX - vertice3.GetX) +Math.Abs(vertice1.GetY - vertice3.GetY)) *2;
         }
         #endregion
-        
-        #region Metodo
 
+        #region Propiedades
+        public float Area
+        {
+            get
+            {
+                return this.area;
+            }
+        }
+
+        public float Perimetro
+        {
+            get
+            {
+                return this.perimetro;
+            }
+        }
         #endregion
     }
 }
