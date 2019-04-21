@@ -5,3 +5,10 @@ E:\Segundo Cuatrimestre\Jakubek.Gabriel.2.D.Ejercicio\Ejercicio01\obj\Debug\Ejer
 E:\Segundo Cuatrimestre\Jakubek.Gabriel.2.D.Ejercicio\Ejercicio01\obj\Debug\Ejercicio01.csproj.CoreCompileInputs.cache
 E:\Segundo Cuatrimestre\Jakubek.Gabriel.2.D.Ejercicio\Ejercicio01\obj\Debug\Ejercicio01.exe
 E:\Segundo Cuatrimestre\Jakubek.Gabriel.2.D.Ejercicio\Ejercicio01\obj\Debug\Ejercicio01.pdb
+E:\Carrera Programacion Superior\Segundo Cuatrimestre\Programacion y Laboratorio 2D 1 cuatri 2019\Git\Ejercicios\Jakubek.Gabriel.2.D.Ejercicio\Ejercicio01\bin\Debug\Ejercicio01.exe.config
+E:\Carrera Programacion Superior\Segundo Cuatrimestre\Programacion y Laboratorio 2D 1 cuatri 2019\Git\Ejercicios\Jakubek.Gabriel.2.D.Ejercicio\Ejercicio01\bin\Debug\Ejercicio01.exe
+E:\Carrera Programacion Superior\Segundo Cuatrimestre\Programacion y Laboratorio 2D 1 cuatri 2019\Git\Ejercicios\Jakubek.Gabriel.2.D.Ejercicio\Ejercicio01\bin\Debug\Ejercicio01.pdb
+E:\Carrera Programacion Superior\Segundo Cuatrimestre\Programacion y Laboratorio 2D 1 cuatri 2019\Git\Ejercicios\Jakubek.Gabriel.2.D.Ejercicio\Ejercicio01\obj\Debug\Ejercicio01.csprojAssemblyReference.cache
+E:\Carrera Programacion Superior\Segundo Cuatrimestre\Programacion y Laboratorio 2D 1 cuatri 2019\Git\Ejercicios\Jakubek.Gabriel.2.D.Ejercicio\Ejercicio01\obj\Debug\Ejercicio01.csproj.CoreCompileInputs.cache
+E:\Carrera Programacion Superior\Segundo Cuatrimestre\Programacion y Laboratorio 2D 1 cuatri 2019\Git\Ejercicios\Jakubek.Gabriel.2.D.Ejercicio\Ejercicio01\obj\Debug\Ejercicio01.exe
+E:\Carrera Programacion Superior\Segundo Cuatrimestre\Programacion y Laboratorio 2D 1 cuatri 2019\Git\Ejercicios\Jakubek.Gabriel.2.D.Ejercicio\Ejercicio01\obj\Debug\Ejercicio01.pdb

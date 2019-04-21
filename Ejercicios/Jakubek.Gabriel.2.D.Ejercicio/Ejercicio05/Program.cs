@@ -12,7 +12,6 @@ namespace Ejercicio05
         static int paraAbajo;
         static int paraArriba;
         static int i;
-        static int j;
         static int ingreso;
         static bool auxBool;
 

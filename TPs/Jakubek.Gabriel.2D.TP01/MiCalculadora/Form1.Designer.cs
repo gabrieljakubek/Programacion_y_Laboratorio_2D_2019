@@ -128,6 +128,8 @@
             this.Controls.Add(this.txtNum2);
             this.Controls.Add(this.txtNum1);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "Calculadora de Gabriel Jakubek del curso 2ºD";
             this.ResumeLayout(false);
