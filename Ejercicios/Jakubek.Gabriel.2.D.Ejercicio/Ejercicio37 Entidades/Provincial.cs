@@ -6,12 +6,6 @@ using System.Threading.Tasks;
 
 namespace Ejercicio37_Entidades
 {
-    public enum Franja
-    {
-        Franja_1,
-        Franja_2,
-        Franja_3
-    }
     public class Provincial : Llamada
     {
         #region Atributos
@@ -70,6 +64,15 @@ namespace Ejercicio37_Entidades
             stringBuilder.AppendLine("La franja horarioa es:" + this.franjaHoraria);
             stringBuilder.AppendLine("El costo de la llamada es de: $" + this.CostoLlamada);
             return stringBuilder.ToString();
+        }
+        #endregion
+
+        #region Enumerador
+        public enum Franja
+        {
+            Franja_1,
+            Franja_2,
+            Franja_3
         }
         #endregion
     }

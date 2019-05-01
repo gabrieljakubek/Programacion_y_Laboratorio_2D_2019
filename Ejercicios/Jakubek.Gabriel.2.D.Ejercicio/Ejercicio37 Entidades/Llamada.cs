@@ -6,13 +6,6 @@ using System.Threading.Tasks;
 
 namespace Ejercicio37_Entidades
 {
-    public enum TipoLlamada
-    {
-        Local,
-        Provincial,
-        Todas
-    }
-
     public class Llamada
     {
         #region Atributos
@@ -66,10 +59,10 @@ namespace Ejercicio37_Entidades
             return stringBuilder.ToString();
         }
 
-        public int OrdenarPorDuracion(Llamada llamada1, Llamada llamada2)
+        public static int OrdenarPorDuracion(Llamada llamada1, Llamada llamada2)
         {
             int retorno = 0;
-            if(llamada1.duracion > llamada2.duracion)
+            if (llamada1.duracion > llamada2.duracion)
             {
                 retorno = 1;
             }
@@ -79,6 +72,15 @@ namespace Ejercicio37_Entidades
             }
 
             return retorno;
+        }
+        #endregion
+
+        #region Enumerador
+        public enum TipoLlamada
+        {
+            Local,
+            Provincial,
+            Todas
         }
         #endregion
     }

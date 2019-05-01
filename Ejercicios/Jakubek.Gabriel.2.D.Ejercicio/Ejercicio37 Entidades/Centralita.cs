@@ -18,7 +18,7 @@ namespace Ejercicio37_Entidades
         {
             get
             {
-                return this.CalcularGanancia(TipoLlamada.Local);
+                return this.CalcularGanancia(Llamada.TipoLlamada.Local);
             }
         }
 
@@ -26,7 +26,7 @@ namespace Ejercicio37_Entidades
         {
             get
             {
-                return this.CalcularGanancia(TipoLlamada.Provincial);
+                return this.CalcularGanancia(Llamada.TipoLlamada.Provincial);
             }
         }
 
@@ -34,7 +34,7 @@ namespace Ejercicio37_Entidades
         {
             get
             {
-                return this.CalcularGanancia(TipoLlamada.Todas);
+                return this.CalcularGanancia(Llamada.TipoLlamada.Todas);
             }
         }
 
@@ -60,12 +60,12 @@ namespace Ejercicio37_Entidades
         #endregion
 
         #region Metodos
-        private float CalcularGanancia(TipoLlamada tipo)
+        private float CalcularGanancia(Llamada.TipoLlamada tipo)
         {
             float retorno = 0;
             switch (tipo)
             {
-                case TipoLlamada.Local:
+                case Llamada.TipoLlamada.Local:
                     foreach (Llamada item in listaLlamadas)
                     {
                         if (item is Local)
@@ -74,7 +74,7 @@ namespace Ejercicio37_Entidades
                         }
                     }
                     break;
-                case TipoLlamada.Provincial:
+                case Llamada.TipoLlamada.Provincial:
                     foreach (Llamada item in listaLlamadas)
                     {
                         if (item is Provincial)
@@ -83,7 +83,7 @@ namespace Ejercicio37_Entidades
                         }
                     }
                     break;
-                case TipoLlamada.Todas:
+                case Llamada.TipoLlamada.Todas:
                     foreach (Llamada item in listaLlamadas)
                     {
                         if (item is Provincial)
@@ -123,10 +123,10 @@ namespace Ejercicio37_Entidades
             }
             return stringBuilder.ToString();
         }
-        
+
         public void OrdenarLlamadas()
         {
-            listaLlamadas.Sort(listaLlamadas[1].OrdenarPorDuracion);
+            listaLlamadas.Sort(Llamada.OrdenarPorDuracion);
         }
         #endregion
     }
