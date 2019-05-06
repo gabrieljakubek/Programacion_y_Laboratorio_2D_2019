@@ -29,6 +29,10 @@ namespace Entidades
         #endregion
 
         #region Metodos
+        /// <summary>
+        /// Retorna los datos del DT
+        /// </summary>
+        /// <returns></returns>
         public override string Mostrar()
         {
             StringBuilder sb = new StringBuilder(base.Mostrar());
@@ -36,6 +40,10 @@ namespace Entidades
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Comprueba que el DT cumpla con los requisitos establesidos para ser apto
+        /// </summary>
+        /// <returns></returns>
         public override bool ValidarAptitud()
         {
             bool retorno = false;

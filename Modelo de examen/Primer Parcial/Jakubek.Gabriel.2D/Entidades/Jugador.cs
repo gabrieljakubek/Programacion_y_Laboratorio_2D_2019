@@ -50,6 +50,10 @@ namespace Entidades
         #endregion
 
         #region Metodos
+        /// <summary>
+        /// Retorna los datos del jugador
+        /// </summary>
+        /// <returns></returns>
         public override string Mostrar()
         {
             StringBuilder sb = new StringBuilder(base.Mostrar());
@@ -59,6 +63,10 @@ namespace Entidades
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Comprueba que el jugador cumpla con los requisitos fisicos establesidos
+        /// </summary>
+        /// <returns></returns>
         public bool ValidarEstadoFisico()
         {
             bool retorno = false;
@@ -70,6 +78,10 @@ namespace Entidades
             return retorno;
         }
 
+        /// <summary>
+        /// Comprueba que el jugador cumpla con los requisitos establesidos para ser apto
+        /// </summary>
+        /// <returns></returns>
         public override bool ValidarAptitud()
         {
             bool retorno = false;

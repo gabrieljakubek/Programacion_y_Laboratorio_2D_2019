@@ -49,6 +49,11 @@ namespace Entidades
         #endregion
 
         #region Metodos
+        /// <summary>
+        /// Valida que el equipo cumpla los requisitos establecidos
+        /// </summary>
+        /// <param name="e">El equipo a validar</param>
+        /// <returns></returns>
         public static bool ValidarEquipo(Equipo e)
         {
             bool retorno = false;
@@ -86,6 +91,10 @@ namespace Entidades
         #endregion
 
         #region Sobrecargas Operadores
+        /// <summary>
+        /// Retorna la informacion del equipo
+        /// </summary>
+        /// <param name="e"></param>
         public static explicit operator string(Equipo e)
         {
             StringBuilder sb = new StringBuilder();
@@ -109,6 +118,13 @@ namespace Entidades
             }
             return sb.ToString();
         }
+
+        /// <summary>
+        /// Comprueba si un jugador ya se encuentra en el equipo
+        /// </summary>
+        /// <param name="e"></param>
+        /// <param name="j"></param>
+        /// <returns></returns>
         public static bool operator ==(Equipo e, Jugador j)
         {
             bool retorno = false;
@@ -126,11 +142,23 @@ namespace Entidades
             return retorno;
         }
 
+        /// <summary>
+        /// Comprueba si un jugador no se encuentra en el equipo
+        /// </summary>
+        /// <param name="e"></param>
+        /// <param name="j"></param>
+        /// <returns></returns>
         public static bool operator !=(Equipo e, Jugador j)
         {
             return !(e == j);
         }
 
+        /// <summary>
+        /// Agrega un jugador al equipo
+        /// </summary>
+        /// <param name="e"></param>
+        /// <param name="j"></param>
+        /// <returns></returns>
         public static Equipo operator +(Equipo e, Jugador j)
         {
             if (e != j && j.ValidarAptitud() && e.jugadores.Count < Equipo.cantidadMaximaJugadores)

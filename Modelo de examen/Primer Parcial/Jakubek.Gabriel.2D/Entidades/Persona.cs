@@ -49,7 +49,7 @@ namespace Entidades
         }
         #endregion
 
-        #region Cosntructores
+        #region Constructores
         public Persona(string nombre, string apellido, int edad, int dni)
         {
             this.nombre = nombre;
@@ -60,6 +60,10 @@ namespace Entidades
         #endregion
 
         #region Metodos
+        /// <summary>
+        /// Retorna los datos de la persona
+        /// </summary>
+        /// <returns></returns>
         public virtual string Mostrar()
         {
             StringBuilder sb = new StringBuilder("Nombre: " + this.nombre);
