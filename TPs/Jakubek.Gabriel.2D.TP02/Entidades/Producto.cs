@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Entidades_2018
 {
@@ -11,40 +8,68 @@ namespace Entidades_2018
     /// </summary>
     public abstract class Producto
     {
-        enum EMarca
+        #region Enumerador
+        public enum EMarca
         {
             Serenisima, Campagnola, Arcor, Ilolay, Sancor, Pepsico
         }
-        EMarca marca;
-        string codigoDeBarras;
-        ConsoleColor colorPrimarioEmpaque;
+        #endregion
 
+        #region Atributos
+        private EMarca marca;
+        private string codigoDeBarras;
+        private ConsoleColor colorPrimarioEmpaque;
+        #endregion
+
+        #region Propiedades
         /// <summary>
-        /// ReadOnly: Retornará la cantidad de ruedas del vehículo
+        /// ReadOnly: Retornará la cantidad de calorias
         /// </summary>
-        public abstract short CantidadCalorias { get; set; }
+        protected abstract short CantidadCalorias { get; }
+        #endregion
 
+        #region
+        /// <summary>
+        /// Constructor del objeto Producto
+        /// </summary>
+        /// <param name="codigoDeBarras">El codigo de barra correspondiente</param>
+        /// <param name="marca">LA marca del producto</param>
+        /// <param name="color">El color primario del empaque</param>
+        public Producto(string codigoDeBarras, EMarca marca, ConsoleColor color)
+        {
+            this.codigoDeBarras = codigoDeBarras;
+            this.marca = marca;
+            this.colorPrimarioEmpaque = color;
+        }
+        #endregion
+
+        #region Metodos
         /// <summary>
         /// Publica todos los datos del Producto.
         /// </summary>
         /// <returns></returns>
-        sealed string Mostrar()
+        public virtual string Mostrar()
         {
-            return this;
+            return (string)this;
         }
 
-        private static explicit operator string(Producto p)
+        /// <summary>
+        /// Retorna toda la informacion del producto
+        /// </summary>
+        /// <param name="p"></param>
+        public static explicit operator string(Producto p)
         {
             StringBuilder sb = new StringBuilder();
-
-            sb.AppendLine("CODIGO DE BARRAS: {0}\r\n", p.codigoDeBarras);
-            sb.AppendLine("MARCA          : {0}\r\n", p.marca.ToString());
-            sb.AppendLine("COLOR EMPAQUE  : {0}\r\n", p.colorPrimarioEmpaque.ToString());
+            sb.AppendFormat("CODIGO DE BARRAS: {0}\r\n", p.codigoDeBarras);
+            sb.AppendFormat("MARCA          : {0}\r\n", p.marca.ToString());
+            sb.AppendFormat("COLOR EMPAQUE  : {0}\r\n", p.colorPrimarioEmpaque.ToString());
             sb.AppendLine("---------------------");
-
-            return sb;
+            return sb.ToString();
         }
+        #endregion
 
+
+        #region Sobrecarga de operadores
         /// <summary>
         /// Dos productos son iguales si comparten el mismo código de barras
         /// </summary>
@@ -55,6 +80,7 @@ namespace Entidades_2018
         {
             return (v1.codigoDeBarras == v2.codigoDeBarras);
         }
+
         /// <summary>
         /// Dos productos son distintos si su código de barras es distinto
         /// </summary>
@@ -63,7 +89,8 @@ namespace Entidades_2018
         /// <returns></returns>
         public static bool operator !=(Producto v1, Producto v2)
         {
-            return (v1.codigoDeBarras == v2.codigoDeBarras);
+            return !(v1 == v2);
         }
+        #endregion
     }
 }

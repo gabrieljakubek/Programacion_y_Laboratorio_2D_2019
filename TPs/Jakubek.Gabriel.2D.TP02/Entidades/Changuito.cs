@@ -11,19 +11,33 @@ namespace Entidades_2018
     /// </summary>
     public class Changuito
     {
-        List<Producto> productos;
-        int espacioDisponible;
+        #region Enumeradores
         public enum ETipo
         {
             Dulce, Leche, Snacks, Todos
         }
+        #endregion
+
+        #region Atributos
+        List<Producto> productos;
+        int espacioDisponible;
+        #endregion
+
 
         #region "Constructores"
+        /// <summary>
+        /// Cosntructor por default que inicia la lista de productos
+        /// </summary>
         private Changuito()
         {
             this.productos = new List<Producto>();
         }
-        public Changuito(int espacioDisponible)
+
+        /// <summary>
+        /// Constructor que asigna la cantidad de espacios disponibles
+        /// </summary>
+        /// <param name="espacioDisponible">Cantidad de espacios disponibles para productos</param>
+        public Changuito(int espacioDisponible) : this()
         {
             this.espacioDisponible = espacioDisponible;
         }
@@ -34,14 +48,13 @@ namespace Entidades_2018
         /// Muestro el Changuito y TODOS los Productos
         /// </summary>
         /// <returns></returns>
-        public string ToString()
+        public override string ToString()
         {
-            return Changuito.Mostrar(this, ETipo.Todos);
+            return this.Mostrar(this, ETipo.Todos);
         }
         #endregion
 
         #region "Métodos"
-
         /// <summary>
         /// Expone los datos del elemento y su lista (incluidas sus herencias)
         /// SOLO del tipo requerido
@@ -52,7 +65,6 @@ namespace Entidades_2018
         public string Mostrar(Changuito c, ETipo tipo)
         {
             StringBuilder sb = new StringBuilder();
-
             sb.AppendFormat("Tenemos {0} lugares ocupados de un total de {1} disponibles", c.productos.Count, c.espacioDisponible);
             sb.AppendLine("");
             foreach (Producto v in c.productos)
@@ -60,21 +72,29 @@ namespace Entidades_2018
                 switch (tipo)
                 {
                     case ETipo.Snacks:
-                        sb.AppendLine(v.Mostrar());
+                        if (v is Snacks)
+                        {
+                            sb.AppendLine(v.Mostrar());
+                        }
                         break;
                     case ETipo.Dulce:
-                        sb.AppendLine(v.Mostrar());
+                        if (v is Dulce)
+                        {
+                            sb.AppendLine(v.Mostrar());
+                        }
                         break;
                     case ETipo.Leche:
-                        sb.AppendLine(v.Mostrar());
+                        if (v is Leche)
+                        {
+                            sb.AppendLine(v.Mostrar());
+                        }
                         break;
                     default:
                         sb.AppendLine(v.Mostrar());
                         break;
                 }
             }
-
-            return sb;
+            return sb.ToString();
         }
         #endregion
 
@@ -87,15 +107,37 @@ namespace Entidades_2018
         /// <returns></returns>
         public static Changuito operator +(Changuito c, Producto p)
         {
-            foreach (Producto v in c)
+            //if (c != p && c.productos.Count() < c.espacioDisponible)
+            //{
+            //    c.productos.Add(p);
+            //}
+            bool chequeo = false;
+            if (c.productos.Count() == 0)
             {
-                if (v == p)
-                    return c;
+                c.productos.Add(p);
             }
-
-            c.productos.Add(p);
+            else
+            {
+                foreach (Producto v in c.productos)
+                {
+                    if (c.productos.Count() < c.espacioDisponible && v != p)
+                    {
+                        chequeo = true;
+                    }
+                    else
+                    {
+                        chequeo = false;
+                        break;
+                    }
+                }
+            }
+            if (chequeo)
+            {
+                c.productos.Add(p);
+            }
             return c;
         }
+
         /// <summary>
         /// Quitará un elemento de la lista
         /// </summary>
@@ -104,16 +146,51 @@ namespace Entidades_2018
         /// <returns></returns>
         public static Changuito operator -(Changuito c, Producto p)
         {
-            foreach (Producto v in c)
+            //if (c == p)
+            //{
+            //    c.productos.Remove(p);
+            //}
+            foreach (Producto v in c.productos)
             {
                 if (v == p)
                 {
+                    c.productos.Remove(p);
                     break;
                 }
             }
-
             return c;
         }
+
+        ///// <summary>
+        ///// Comprobara si un objeto está insertado en la lista
+        ///// </summary>
+        ///// <param name="c">Objeto donde se comprobara</param>
+        ///// <param name="p">Objeto a comprobar</param>
+        ///// <returns></returns>
+        //public static bool operator ==(Changuito c, Producto p)
+        //{
+        //    bool retorno = false;
+        //    foreach (Producto producto in c.productos)
+        //    {
+        //        if (producto == p)
+        //        {
+        //            retorno = true;
+        //            break;
+        //        }
+        //    }
+        //    return retorno;
+        //}
+
+        ///// <summary>
+        ///// Comprobara si un objeto no está insertado en la lista
+        ///// </summary>
+        ///// <param name="c"></param>
+        ///// <param name="p"></param>
+        ///// <returns></returns>
+        //public static bool operator !=(Changuito c, Producto p)
+        //{
+        //    return !(c == p);
+        //}
         #endregion
     }
 }
