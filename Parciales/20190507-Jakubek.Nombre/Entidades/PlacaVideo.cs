@@ -18,6 +18,7 @@ namespace Entidades
             this.ramMB = ramMB;
         }
         #endregion
+
         #region Metodos
         /// <summary>
         /// Retorna Los datos de la Placa de Video

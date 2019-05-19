@@ -1,8 +1,11 @@
-﻿public enum EConector
+﻿namespace Entidades
 {
-    PCIExpress,
-    USB,
-    MiniUSB,
-    MicroUSB,
-    PS2
+    public enum EConector
+    {
+        PCIExpress,
+        USB,
+        MiniUSB,
+        MicroUSB,
+        PS2
+    }
 }

@@ -13,10 +13,11 @@ namespace GUI
 {
     public partial class Form1 : Form
     {
-        Maquina m = new Maquina("LAB01PC03");
+        Maquina m;
         public Form1()
         {
             InitializeComponent();
+            m = new Maquina();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

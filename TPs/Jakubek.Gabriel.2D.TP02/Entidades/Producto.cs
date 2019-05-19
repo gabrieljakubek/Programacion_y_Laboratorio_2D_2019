@@ -28,7 +28,7 @@ namespace Entidades_2018
         protected abstract short CantidadCalorias { get; }
         #endregion
 
-        #region
+        #region Constructores
         /// <summary>
         /// Constructor del objeto Producto
         /// </summary>
@@ -68,7 +68,6 @@ namespace Entidades_2018
         }
         #endregion
 
-
         #region Sobrecarga de operadores
         /// <summary>
         /// Dos productos son iguales si comparten el mismo código de barras
@@ -90,6 +89,16 @@ namespace Entidades_2018
         public static bool operator !=(Producto v1, Producto v2)
         {
             return !(v1 == v2);
+        }
+
+        /// <summary>
+        /// Comprueba que dos productos sean iguales
+        /// </summary>
+        /// <param name="obj">El producto a comparar</param>
+        /// <returns></returns>
+        public override bool Equals(object obj)
+        {
+            return this == (Producto) obj;
         }
         #endregion
     }

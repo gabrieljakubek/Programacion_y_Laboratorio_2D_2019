@@ -7,7 +7,7 @@ namespace Ejercicio40
     {
         static void Main(string[] args)
         {
-            Console.Title = "Ejercicio Nº37 Guía 2019";
+            Console.Title = "Ejercicio Nº40 Guía 2019";
             // Mi central
             Centralita c = new Centralita("Fede Center");
             // Mis 4 llamadas

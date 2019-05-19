@@ -72,7 +72,7 @@ namespace Entidades
             this.cantidadMaxPerifericos = 3;
         }
 
-        public Maquina(string nombre) : this()
+        public Maquina(string nombre = "LAB01PC03") : this()
         {
             this.nombre = nombre;
         }
@@ -123,6 +123,7 @@ namespace Entidades
                     if (item == p)
                     {
                         m.perifericos.Remove(item);
+                        break;
                     }
                 }
 
