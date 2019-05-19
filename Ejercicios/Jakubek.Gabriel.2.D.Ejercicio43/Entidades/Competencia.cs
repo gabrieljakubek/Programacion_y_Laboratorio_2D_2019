@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ejercicio36_Entidades
+namespace Entidades
 {
-    public class Competencia
+    class Competencia
     {
         #region Enumerador
         public enum TipoCompetencia
