@@ -21,6 +21,7 @@ namespace Ejercicio36_Entidades
         private short cantidadVueltas;
         private List<VehiculoDeCarrera> competidores;
         private TipoCompetencia tipo;
+        private static Random alearotio = new Random(DateTime.Now.TimeOfDay.Hours);
         #endregion
 
         #region Propiedades
@@ -32,7 +33,7 @@ namespace Ejercicio36_Entidades
             }
             set
             {
-                ;
+                this.cantidadCompetidores = value;
             }
         }
 
@@ -59,6 +60,14 @@ namespace Ejercicio36_Entidades
                 this.tipo = value;
             }
         }
+
+        public VehiculoDeCarrera this[int i]
+        {
+            get
+            {
+                return this.competidores[i];
+            }
+        }
         #endregion
 
         #region Constructores
@@ -78,7 +87,7 @@ namespace Ejercicio36_Entidades
 
         #endregion
 
-        #region Sobrecarga de operadores
+        #region Operadores
         public static bool operator +(Competencia c, VehiculoDeCarrera a)
         {
             bool retorno = true;
@@ -98,14 +107,19 @@ namespace Ejercicio36_Entidades
                 retorno = false;
             }
 
-            if(retorno)
+            if (retorno)
             {
+                a.EnCompetencia = true;
+                a.VueltasRestantes = c.cantidadVueltas;
+                a.CantidadCombustible = (short)Competencia.alearotio.Next(15, 100);
                 c.competidores.Add(a);
             }
 
             return retorno;
         }
+        #endregion
 
+        #region Sobrecargas
         public static bool operator ==(Competencia c, VehiculoDeCarrera a)
         {
             bool retorno = false;
