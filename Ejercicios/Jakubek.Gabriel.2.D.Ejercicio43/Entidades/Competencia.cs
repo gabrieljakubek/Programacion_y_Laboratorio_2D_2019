@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    class Competencia
+    public class Competencia
     {
         #region Enumerador
         public enum TipoCompetencia
@@ -76,10 +76,11 @@ namespace Entidades
             this.competidores = new List<VehiculoDeCarrera>();
         }
 
-        public Competencia(short cantidadVueltas, short cantidadCompetidores) : this()
+        public Competencia(short cantidadVueltas, short cantidadCompetidores, TipoCompetencia tipo) : this()
         {
             this.cantidadVueltas = cantidadVueltas;
             this.cantidadCompetidores = cantidadCompetidores;
+            this.tipo = tipo;
         }
         #endregion
 
@@ -128,6 +129,24 @@ namespace Entidades
                 c.competidores.Add(a);
             }
 
+            return retorno;
+        }
+
+        public static bool operator -(Competencia c, VehiculoDeCarrera a)
+        {
+            bool retorno = false;
+            if (c == a)
+            {
+                foreach (VehiculoDeCarrera item in c.competidores)
+                {
+                    if (item == a)
+                    {
+                        c.competidores.Remove(item);
+                        retorno = true;
+                        break;
+                    }
+                }
+            }
             return retorno;
         }
         #endregion

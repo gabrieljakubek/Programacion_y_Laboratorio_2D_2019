@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AutoF1.cs" />
     <Compile Include="Competencia.cs" />
+    <Compile Include="CompetenciaNoDisponibleException.cs" />
     <Compile Include="MotoCross.cs" />
     <Compile Include="VehiculoDeCarrera.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
