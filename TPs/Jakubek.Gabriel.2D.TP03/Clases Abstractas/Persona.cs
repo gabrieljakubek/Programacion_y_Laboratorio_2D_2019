@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Excepciones;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Excepciones;
 
-namespace Clases_Abstractas
+namespace EntidadesAbstractas
 {
     public abstract class Persona
     {
@@ -17,6 +14,9 @@ namespace Clases_Abstractas
         #endregion
 
         #region Propiedades
+        /// <summary>
+        /// Propiedad del atributo apellido
+        /// </summary>
         public string Apellido
         {
             get
@@ -29,6 +29,9 @@ namespace Clases_Abstractas
             }
         }
 
+        /// <summary>
+        /// Propiedad del atributo DNI (se le asignara el dni siempre y cuando sea valido)
+        /// </summary>
         public int DNI
         {
             get
@@ -37,26 +40,13 @@ namespace Clases_Abstractas
             }
             set
             {
-                try
-                {
-                    this.dni = ValidarDni(this.nacionalidad, value);
-                }
-                catch (DniInvalidoException ex)
-                {
-                    throw;
-                }
-                catch (NacionalidadInvalidaException ex)
-                {
-                    throw;
-                }
-                catch (Exception ex)
-                {
-
-                    throw;
-                }; 
+                this.dni = ValidarDni(this.nacionalidad, value);
             }
         }
 
+        /// <summary>
+        /// Propiedad de la nacionalidad
+        /// </summary>
         public ENacionalidad Nacionalidad
         {
             get
@@ -69,6 +59,9 @@ namespace Clases_Abstractas
             }
         }
 
+        /// <summary>
+        /// Propiedad el Nombre
+        /// </summary>
         public string Nombre
         {
             get
@@ -81,38 +74,53 @@ namespace Clases_Abstractas
             }
         }
 
+        /// <summary>
+        /// Propiedad que asigna un DNI en formato string siempre y cuando cumpla con los requisitos
+        /// </summary>
         public string StringToDNI
         {
             set
             {
-                try
-                {
-                    this.dni = ValidarDni(this.nacionalidad, value);
-                }
-                catch (DniInvalidoException ex)
-                {
-                    throw;
-                }
-                catch (NacionalidadInvalidaException ex)
-                {
-                    throw;
-                }
-                catch (Exception ex)
-                {
-
-                    throw;
-                };
+                this.dni = ValidarDni(this.nacionalidad, value);
             }
         }
         #endregion
 
         #region Constructores
-        public Persona() : this("", "", "", ENacionalidad.Argentino)
+        /// <summary>
+        /// Constructor por default
+        /// </summary>
+        public Persona()
         { }
-        public Persona(string nombre, string apellido, ENacionalidad nacionalidad) : this(nombre, apellido, "", nacionalidad)
+
+        /// <summary>
+        /// Constructor que recibe los datos de una persona a excepcion del dni
+        /// </summary>
+        /// <param name="nombre">Nombre de la persona</param>
+        /// <param name="apellido">Apellido de la persona</param>
+        /// <param name="nacionalidad">Nacionalidad de la persona</param>
+        public Persona(string nombre, string apellido, ENacionalidad nacionalidad) 
+            : this(nombre, apellido, 0, nacionalidad)
         { }
-        public Persona(string nombre, string apellido, int dni, ENacionalidad nacionalidad) : this(nombre, apellido, dni.ToString(), nacionalidad)
+
+        /// <summary>
+        /// Cosntructor que recibe todos los ddatos de la persona
+        /// </summary>
+        /// <param name="nombre">Nombre de la persona</param>
+        /// <param name="apellido">Apellido de la persona</param>
+        /// <param name="dni">DNI de la persona</param>
+        /// <param name="nacionalidad">Nacionalidad de la persona</param>
+        public Persona(string nombre, string apellido, int dni, ENacionalidad nacionalidad) 
+            : this(nombre, apellido, dni.ToString(), nacionalidad)
         { }
+
+        /// <summary>
+        /// Cosntructor que recibe todos los ddatos de la persona
+        /// </summary>
+        /// <param name="nombre">Nombre de la persona</param>
+        /// <param name="apellido">Apellido de la persona</param>
+        /// <param name="dni">DNI de la persona</param>
+        /// <param name="nacionalidad">Nacionalidad de la persona</param>
         public Persona(string nombre, string apellido, string dni, ENacionalidad nacionalidad)
         {
             this.Nombre = nombre;
@@ -123,33 +131,27 @@ namespace Clases_Abstractas
         #endregion
 
         #region Metodos
+        /// <summary>
+        /// Metodo que comprueba si un DNI es apto o no
+        /// </summary>
+        /// <param name="nacionalidad">NAcionalidad de la persona</param>
+        /// <param name="dato">DNi que se desea saber si es apto o no</param>
+        /// <returns>Si cumple con los requisitos retorna el DNI, caso contrario se genera un DniInvalidoException</returns>
         private int ValidarDni(ENacionalidad nacionalidad, int dato)
-        {
-            return ValidarDni(nacionalidad, dato.ToString());
-        }
-
-        private int ValidarDni(ENacionalidad nacionalidad, string dato)
         {
             int retorno = 0;
             string mensaje = "DNI invalido";
-            if (dato.Count() < 9)
+            if (dato >= 1 && dato <= 99999999)
             {
-                if (!int.TryParse(dato, out int resultado))
-                {
-                    throw new DniInvalidoException(mensaje);
-                }
-                else
-                {
-                    if ((nacionalidad != ENacionalidad.Argentino && resultado >= 1 && resultado <= 89999999) ||
-                        (nacionalidad != ENacionalidad.Extrangero && resultado >= 90000000 && resultado <= 99999999))
+                    if ((nacionalidad != ENacionalidad.Argentino && dato >= 1 && dato <= 89999999) ||
+                        (nacionalidad != ENacionalidad.Extranjero && dato >= 90000000 && dato <= 99999999))
                     {
                         throw new NacionalidadInvalidaException("Nacionalidad invalida");
                     }
                     else
                     {
-                        retorno = resultado;
+                        retorno = dato;
                     }
-                }
             }
             else
             {
@@ -159,6 +161,34 @@ namespace Clases_Abstractas
             return retorno;
         }
 
+        /// <summary>
+        /// Valida si la cadena es un numero y combreba que cumpla con los requisitos
+        /// </summary>
+        /// <param name="nacionalidad">Nacionalidad de la persona</param>
+        /// <param name="dato">Cadena de caracteres que se desea comprobar si es un dni apto</param>
+        /// <returns>Si cumple con los requisitos retorna el DNI, caso contrario se genera un DniInvalidoException</returns>
+        private int ValidarDni(ENacionalidad nacionalidad, string dato)
+        {
+            int retorno = 0;
+            string mensaje = "DNI invalido";
+            if (!int.TryParse(dato, out int resultado) && dato.Count() < 9)
+            {
+
+                retorno = ValidarDni(nacionalidad, resultado);
+            }
+            else
+            {
+                throw new DniInvalidoException(mensaje);
+            }
+
+            return retorno;
+        }
+
+        /// <summary>
+        /// Valida que un nombre o apellido sean correctos
+        /// </summary>
+        /// <param name="dato">Nombre/Apellido que se desea saber si es correcto</param>
+        /// <returns>Si se cumple con los rquisitos retorna el Nombre/Apellido, caso contrario retorna "" </returns>
         private string ValidarNombreApellido(string dato)
         {
             bool chequeo = false;
@@ -180,6 +210,10 @@ namespace Clases_Abstractas
         #endregion
 
         #region Sobrecarga
+        /// <summary>
+        /// Retorna toda la informacion de la PErsona
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -194,7 +228,7 @@ namespace Clases_Abstractas
         public enum ENacionalidad
         {
             Argentino,
-            Extrangero
+            Extranjero
         }
     }
 }

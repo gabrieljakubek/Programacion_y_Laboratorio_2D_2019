@@ -13,3 +13,10 @@ C:\Users\alumno.LAB5PC03\Downloads\Clases\Clase_1\Clase_2\obj\Debug\Clase_2.pdb
 D:\Federico\VB .Net\Visual C#\utn\Clases\Final_Clase_2\Clase_2\bin\Debug\Clase_2.exe.config
 D:\Federico\VB .Net\Visual C#\utn\Clases\Final_Clase_2\Clase_2\obj\Debug\Clase_2.exe
 D:\Federico\VB .Net\Visual C#\utn\Clases\Final_Clase_2\Clase_2\obj\Debug\Clase_2.pdb
+F:\Segundo Cuatrimestre\Programacion y Laboratorio 2D 1C 2019\Practica\Final_Clase_2\Clase_2\bin\Debug\Clase_2.exe.config
+F:\Segundo Cuatrimestre\Programacion y Laboratorio 2D 1C 2019\Practica\Final_Clase_2\Clase_2\bin\Debug\Clase_2.exe
+F:\Segundo Cuatrimestre\Programacion y Laboratorio 2D 1C 2019\Practica\Final_Clase_2\Clase_2\bin\Debug\Clase_2.pdb
+F:\Segundo Cuatrimestre\Programacion y Laboratorio 2D 1C 2019\Practica\Final_Clase_2\Clase_2\obj\Debug\Clase_2.csprojAssemblyReference.cache
+F:\Segundo Cuatrimestre\Programacion y Laboratorio 2D 1C 2019\Practica\Final_Clase_2\Clase_2\obj\Debug\Clase_2.csproj.CoreCompileInputs.cache
+F:\Segundo Cuatrimestre\Programacion y Laboratorio 2D 1C 2019\Practica\Final_Clase_2\Clase_2\obj\Debug\Clase_2.exe
+F:\Segundo Cuatrimestre\Programacion y Laboratorio 2D 1C 2019\Practica\Final_Clase_2\Clase_2\obj\Debug\Clase_2.pdb
