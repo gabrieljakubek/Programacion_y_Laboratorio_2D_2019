@@ -1,9 +1,11 @@
 ﻿using Excepciones;
+using System;
 using System.Linq;
 using System.Text;
 
 namespace EntidadesAbstractas
 {
+    [Serializable]
     public abstract class Persona
     {
         #region Atributos
@@ -99,33 +101,34 @@ namespace EntidadesAbstractas
         /// <param name="nombre">Nombre de la persona</param>
         /// <param name="apellido">Apellido de la persona</param>
         /// <param name="nacionalidad">Nacionalidad de la persona</param>
-        public Persona(string nombre, string apellido, ENacionalidad nacionalidad) 
-            : this(nombre, apellido, 0, nacionalidad)
-        { }
-
-        /// <summary>
-        /// Cosntructor que recibe todos los ddatos de la persona
-        /// </summary>
-        /// <param name="nombre">Nombre de la persona</param>
-        /// <param name="apellido">Apellido de la persona</param>
-        /// <param name="dni">DNI de la persona</param>
-        /// <param name="nacionalidad">Nacionalidad de la persona</param>
-        public Persona(string nombre, string apellido, int dni, ENacionalidad nacionalidad) 
-            : this(nombre, apellido, dni.ToString(), nacionalidad)
-        { }
-
-        /// <summary>
-        /// Cosntructor que recibe todos los ddatos de la persona
-        /// </summary>
-        /// <param name="nombre">Nombre de la persona</param>
-        /// <param name="apellido">Apellido de la persona</param>
-        /// <param name="dni">DNI de la persona</param>
-        /// <param name="nacionalidad">Nacionalidad de la persona</param>
-        public Persona(string nombre, string apellido, string dni, ENacionalidad nacionalidad)
+        public Persona(string nombre, string apellido, ENacionalidad nacionalidad)
         {
             this.Nombre = nombre;
             this.Apellido = apellido;
-            this.nacionalidad = nacionalidad;
+            this.Nacionalidad = nacionalidad;
+        }
+
+        /// <summary>
+        /// Cosntructor que recibe todos los ddatos de la persona
+        /// </summary>
+        /// <param name="nombre">Nombre de la persona</param>
+        /// <param name="apellido">Apellido de la persona</param>
+        /// <param name="dni">DNI de la persona</param>
+        /// <param name="nacionalidad">Nacionalidad de la persona</param>
+        public Persona(string nombre, string apellido, int dni, ENacionalidad nacionalidad) :this(nombre,apellido,nacionalidad)
+        {
+            this.DNI = dni;
+        }
+
+        /// <summary>
+        /// Cosntructor que recibe todos los ddatos de la persona
+        /// </summary>
+        /// <param name="nombre">Nombre de la persona</param>
+        /// <param name="apellido">Apellido de la persona</param>
+        /// <param name="dni">DNI de la persona</param>
+        /// <param name="nacionalidad">Nacionalidad de la persona</param>
+        public Persona(string nombre, string apellido, string dni, ENacionalidad nacionalidad) : this(nombre, apellido, nacionalidad)
+        {
             this.StringToDNI = dni;
         }
         #endregion
@@ -171,7 +174,7 @@ namespace EntidadesAbstractas
         {
             int retorno = 0;
             string mensaje = "DNI invalido";
-            if (!int.TryParse(dato, out int resultado) && dato.Count() < 9)
+            if (int.TryParse(dato, out int resultado) && dato.Count() < 9)
             {
 
                 retorno = ValidarDni(nacionalidad, resultado);
@@ -201,7 +204,7 @@ namespace EntidadesAbstractas
                     break;
                 }
             }
-            if (chequeo)
+            if (!chequeo)
             {
                 retorno = dato;
             }
@@ -211,15 +214,15 @@ namespace EntidadesAbstractas
 
         #region Sobrecarga
         /// <summary>
-        /// Retorna toda la informacion de la PErsona
+        /// Retorna toda la informacion de la Persona
         /// </summary>
         /// <returns></returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("DNI: " + this.dni);
             sb.AppendLine("Nombre: " + this.nombre);
             sb.AppendLine("Apellido: " + this.apellido);
+            sb.AppendLine("DNI: " + this.dni);
             sb.AppendLine("Nacionalidad: " + this.nacionalidad);
             return sb.ToString();
         }
