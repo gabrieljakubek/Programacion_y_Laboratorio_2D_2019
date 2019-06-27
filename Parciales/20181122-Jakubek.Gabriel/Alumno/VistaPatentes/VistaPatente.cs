@@ -34,10 +34,10 @@ namespace Patentes
                     Random r = new Random();
                     // Llamar al hilo principal
                     // ALUMNO
+                    Thread.Sleep(r.Next(2000, 5000));
                     object[] parametros = { patente };
                     MostrarPatente mostrar = new MostrarPatente(MostrarPatente);
                     lblPatenteNro.Invoke(mostrar, parametros);
-                    Thread.Sleep(r.Next(2000, 5000));
                     // Agregar evento de que finalizó la exposición de la patente
                     // ALUMNO
                     this.finExposicion.Invoke(this);
@@ -52,6 +52,5 @@ namespace Patentes
         }
 
         public event FinExposicionPatente finExposicion;
-
     }
 }

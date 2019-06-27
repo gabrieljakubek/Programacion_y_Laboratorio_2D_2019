@@ -16,11 +16,11 @@ namespace Archivos
 
             try
             {
-                using (StreamWriter writer = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) +"\\"+ archivo+ ".txt"))
+                using (StreamWriter writer = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + archivo + ".txt"))
                 {
                     while (datos.Count != 0)
                     {
-                        writer.WriteLine(datos.Dequeue().CodigoPatente,true);
+                        writer.WriteLine(datos.Dequeue().CodigoPatente, true);
                     }
                 }
             }
@@ -34,15 +34,21 @@ namespace Archivos
         public void Leer(string archivo, out Queue<Patente> dato)
         {
             dato = new Queue<Patente>();
-            string auxiliar;
-            Patente.Tipo tipo;
             try
             {
                 using (StreamReader reader = new StreamReader(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + archivo + ".txt"))
                 {
                     while (!reader.EndOfStream)
                     {
-                        dato.Enqueue(PatenteStringExtension.ValidarPatente(reader.ReadLine()));
+                        try
+                        {
+                            dato.Enqueue(PatenteStringExtension.ValidarPatente(reader.ReadLine()));
+
+                        }
+                        catch (PatenteInvalidaException ex)
+                        {
+                            throw ex;
+                        }
                     }
                 }
             }

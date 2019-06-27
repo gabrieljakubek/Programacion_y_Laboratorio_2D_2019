@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
+﻿using Archivos;
 using Entidades;
-using Archivos;
-using System.Threading;
 using Patentes;
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace _20181122_SP
 {
@@ -28,12 +21,9 @@ namespace _20181122_SP
 
         public void ProximaPatente(VistaPatente vp)
         {
-            while (cola.Count > 0)
-            {
                 Thread hilo = new Thread(new ParameterizedThreadStart(vp.MostrarPatente));
                 threads.Add(hilo);
                 hilo.Start(cola.Dequeue());
-            }
         }
 
         private void FrmPpal_Load(object sender, EventArgs e)
@@ -49,17 +39,58 @@ namespace _20181122_SP
 
         private void btnXml_Click(object sender, EventArgs e)
         {
-
+            Xml<List<Patente>> xml = new Xml<List<Patente>>();
+            List<Patente> patentes;
+            try
+            {
+                xml.Leer("patentes", out patentes);
+                foreach (Patente item in patentes)
+                {
+                    cola.Enqueue(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                this.IniciarSimulacion();
+            }
         }
 
         private void btnTxt_Click(object sender, EventArgs e)
         {
-
+            Texto texto = new Texto();
+            try
+            {
+                texto.Leer("patentes", out cola);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                this.IniciarSimulacion();
+            }
         }
 
         private void btnSql_Click(object sender, EventArgs e)
         {
-
+            Sql sql = new Sql();
+            try
+            {
+                sql.Leer("patentes", out cola);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                this.IniciarSimulacion();
+            }
         }
 
         private void IniciarSimulacion()

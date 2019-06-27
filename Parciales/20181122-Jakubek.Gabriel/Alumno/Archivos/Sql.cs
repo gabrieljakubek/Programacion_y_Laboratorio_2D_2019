@@ -22,6 +22,7 @@ namespace Archivos
             comando.CommandType = CommandType.Text;
             comando.Connection = conexion;
         }
+
         public void Guardar(string tabla, Queue<Patente> datos)
         {
             try

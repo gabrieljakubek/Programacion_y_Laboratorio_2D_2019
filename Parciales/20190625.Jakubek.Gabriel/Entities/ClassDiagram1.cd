@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Entities.Emisor">
+    <Position X="2.5" Y="0.5" Width="3.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAFAAAAEQAAAAAAAAAAAAAAAAAAAIAAAACA=</HashCode>
+      <FileName>Emisor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.EmisorDeEmails">
+    <Position X="6.75" Y="4.5" Width="4.75" />
+    <InheritanceLine Type="Entities.Emisor" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="6" Y="3.222" />
+        <Point X="6.534" Y="3.222" />
+        <Point X="6.534" Y="5.664" />
+        <Point X="6.75" Y="5.664" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACEAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EmisorDeEmails.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.EmisorDeWhatsapp">
+    <Position X="2.5" Y="4.5" Width="3.75" />
+    <InheritanceLine Type="Entities.Emisor" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6" Y="3.222" />
+        <Point X="6.534" Y="3.222" />
+        <Point X="6.534" Y="4.125" />
+        <Point X="5.714" Y="4.125" />
+        <Point X="5.714" Y="4.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAACAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>EmisorDeWhatsapp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Entities.EProducto">
+    <Position X="6.25" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQABAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Emisor.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
