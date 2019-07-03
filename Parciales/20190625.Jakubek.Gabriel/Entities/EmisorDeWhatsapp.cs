@@ -42,7 +42,7 @@ namespace Entities
         /// </summary>
         public override void EnviarMensaje()
         {
-            if (!this.numeroTelefono.Equals(null))
+            if(!Object.Equals(this.numeroTelefono,null))//(!this.numeroTelefono.Equals(null)) this.numeroTelefono != null
             {
                 Thread.Sleep(100);
                 this.EventMensaje.Invoke(this);
