@@ -21,7 +21,7 @@ namespace Entities
         /// </summary>
         public override void EnviarMensaje()
         {
-            if (this.EventMensaje != null)
+            if (!Object.Equals(this.EventMensaje, null))
             {
                 Thread.Sleep(300);
                 EventMensaje.Invoke(this);

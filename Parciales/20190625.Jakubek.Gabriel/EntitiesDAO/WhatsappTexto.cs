@@ -39,7 +39,7 @@ namespace Persistencia
       }
     }
 
-    string IData<string>.Leer()
+    public string Leer()
     {
       string retorno = "";
       try
@@ -48,7 +48,7 @@ namespace Persistencia
         {
           while (!reader.EndOfStream)
           {
-              retorno +=reader.ReadLine();
+              retorno +=reader.ReadLine() + "\r\n";
 
           }
         }

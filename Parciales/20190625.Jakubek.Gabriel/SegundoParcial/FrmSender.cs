@@ -31,13 +31,20 @@ namespace SegundoParcial
         /// <param name="e"></param>
         private void BtnSendEmail_Click(object sender, EventArgs e)
         {
-            EmailDB email = new EmailDB();
-            EmisorDeEmails emisor = new EmisorDeEmails(txtTel.Text, (EProducto)Enum.Parse(typeof(EProducto), cmbProducto.Text),txtEmail.Text);
-            emisor.EventMensaje = email.Guardar;
-            emisor.EventMensaje = MostrarMensaje;
-            Thread hilo = new Thread(emisor.EnviarMensaje);
-            this.hilos.Add(hilo);
-            hilo.Start();
+            if (richMensaje.Text != "" && cmbProducto.Text != "" && txtEmail.Text != "")
+            {
+                EmailDB email = new EmailDB();
+                EmisorDeEmails emisor = new EmisorDeEmails(richMensaje.Text, (EProducto)Enum.Parse(typeof(EProducto), cmbProducto.Text), txtEmail.Text);
+                emisor.EventMensaje = email.Guardar;
+                emisor.EventMensaje = MostrarMensaje;
+                Thread hilo = new Thread(emisor.EnviarMensaje);
+                this.hilos.Add(hilo);
+                hilo.Start();
+            }
+            else
+            {
+                MessageBox.Show("Debe ingresar datos en los campos!!");
+            }
         }
 
         /// <summary>
@@ -48,7 +55,13 @@ namespace SegundoParcial
         /// <param name="e"></param>
         private void BtnMailInfo_Click(object sender, EventArgs e)
         {
-
+            richOutPut.Clear();
+            EmailDB email = new EmailDB();
+            List<EmisorDeEmails> lista = email.Leer();
+            foreach (EmisorDeEmails item in lista)
+            {
+                richOutPut.Text += item.Mostrar() + "\r\n";
+            }
         }
 
         /// <summary>
@@ -61,13 +74,20 @@ namespace SegundoParcial
         /// <param name="e"></param>
         private void BtnSendWhat_Click(object sender, EventArgs e)
         {
-            WhatsappTexto texto = new WhatsappTexto();
-            EmisorDeEmails emisor = new EmisorDeEmails(txtTel.Text, (EProducto)Enum.Parse(typeof(EProducto), cmbProducto.Text), txtEmail.Text);
-            emisor.EventMensaje = new EnviarMensajeDelegate(texto.Guardar);
-            emisor.EventMensaje = new EnviarMensajeDelegate(MostrarMensaje);
-            Thread hilo = new Thread(emisor.EnviarMensaje);
-            this.hilos.Add(hilo);
-            hilo.Start();
+            if ((richMensaje.Text != "" && cmbProducto.Text != "" && int.TryParse(txtTel.Text, out int convercion)))
+            {
+                WhatsappTexto texto = new WhatsappTexto();
+                EmisorDeWhatsapp emisor = new EmisorDeWhatsapp(richMensaje.Text, (EProducto)Enum.Parse(typeof(EProducto), cmbProducto.Text), convercion);
+                emisor.EventMensaje += texto.Guardar;
+                emisor.EventMensaje += MostrarMensaje;
+                Thread hilo = new Thread(emisor.EnviarMensaje);
+                this.hilos.Add(hilo);
+                hilo.Start();
+            }
+            else
+            {
+                MessageBox.Show("Debe ingresar datos en los campos!!");
+            }
         }
 
         /// <summary>
@@ -78,7 +98,9 @@ namespace SegundoParcial
         /// <param name="e"></param>
         private void BtnWhatInfo_Click(object sender, EventArgs e)
         {
-
+            richOutPut.Clear();
+            WhatsappTexto whatsappTexto = new WhatsappTexto();
+            richOutPut.Text = whatsappTexto.Leer();
         }
 
         /// <summary>

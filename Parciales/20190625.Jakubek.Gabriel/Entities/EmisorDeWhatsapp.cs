@@ -8,10 +8,10 @@ namespace Entities
     {
         private int numeroTelefono;
 
-        public EmisorDeWhatsapp(string mensaje, EProducto producto)
+        public EmisorDeWhatsapp(string mensaje, EProducto producto, int numero)
             : base(mensaje, producto)
         {
-
+            this.numeroTelefono = numero;
         }
 
         public EmisorDeWhatsapp()
@@ -42,7 +42,7 @@ namespace Entities
         /// </summary>
         public override void EnviarMensaje()
         {
-            if(!Object.Equals(this.numeroTelefono,null))//(!this.numeroTelefono.Equals(null)) this.numeroTelefono != null
+            if(!Object.Equals(this.EventMensaje,null))//(!this.numeroTelefono.Equals(null)) this.numeroTelefono != null
             {
                 Thread.Sleep(100);
                 this.EventMensaje.Invoke(this);

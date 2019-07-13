@@ -194,7 +194,8 @@
             this.Controls.Add(this.btnSendEmail);
             this.Controls.Add(this.btnSendWhat);
             this.Name = "FrmSender";
-            this.Text = "Nombre.Apellido";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Gabriel Jakubek";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmSender_FormClosed);
             this.Load += new System.EventHandler(this.FrmSender_Load);
             this.ResumeLayout(false);
